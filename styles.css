@@ -144,11 +144,12 @@ p {
     margin-top: 1rem;
 }
 
-button {
+a {
  font-family: 'Roboto', sans-serif;
  text-align: center;
  font-size: 1.6rem;
  color: #F4EDE8;
+ text-decoration: none;
 
  transition: .5s ease-in-out;
  background-color: #d80600;
@@ -158,8 +159,12 @@ button {
 
  height: 4.5rem;
  width: 80%;
+
+ justify-content: center;
+ align-items: center;
+ display: flex;
 }
-button:hover {
+a:hover {
     background-color: #F4EDE8;
     color: #d80600;
 
