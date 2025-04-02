@@ -2,6 +2,17 @@ const initBtn = document.querySelector('#initbtn');
 const time = document.querySelector('#time');
 let initNumber = 0;
 
+initBtn.addEventListener('click', animateBox);
+initBtn.addEventListener('touchstart', animateBox); // Para dispositivos móveis
+
+function animateBox() {
+ initBtn.classList.add('animate');
+
+ // Remove a classe após a animação para permitir repetição
+ setTimeout(() => {
+     initBtn.classList.remove('animate');
+ }, 600); // Tempo igual à duração da animação
+}
 
 initBtn.addEventListener('click', () => {
     initNumber++;
@@ -10,23 +21,33 @@ initBtn.addEventListener('click', () => {
      document.documentElement.classList.add("active");
      
      function createHeart() {
-        const heart = document.createElement('div');
-        heart.classList.add('heart');
-        
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-        
-        heart.innerText = '❤️';
-        
-        document.body.appendChild(heart);
-        
-        setTimeout(() => {
-                    heart.remove();
-        }, 5000);
-    }
-      
-    setInterval(createHeart, 300);
-    }
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+
+      // Posição aleatória
+      heart.style.left = Math.random() * 100 + "vw";
+
+      // Tamanho aleatório para variedade
+      heart.style.fontSize = Math.random() * 1.5 + 1 + "rem";
+
+      // Definir duração aleatória da animação
+      const duration = Math.random() * 2 + 3;
+      heart.style.animationDuration = duration + "s";
+
+      // Adiciona o coração à tela
+      document.body.appendChild(heart);
+
+      // Remove o coração após a animação
+      setTimeout(() => {
+          heart.remove();
+      }, duration * 1000);
+  }
+
+  // Criar um coração a cada 300ms
+  setInterval(createHeart, 300);
+}
+
 });
 
 const swiper = new Swiper(".mySwiper", {
@@ -90,3 +111,13 @@ calcularTempoPassado("2024-05-23 12:50 PM");
 //   link.click();
 //   document.body.removeChild(link);
 // });
+
+document.getElementById("downloadBtn").addEventListener("click", function() {
+  const fileId = "15pweXozqaz02C_qTOhLHdBTO0aHil9ok";
+  const downloadLink = document.createElement("a");
+  downloadLink.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
+  downloadLink.setAttribute("download", ""); // Força o download
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+});

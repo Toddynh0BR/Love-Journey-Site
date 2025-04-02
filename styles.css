@@ -15,10 +15,10 @@
 body {
  background-color: #1C1B1E;
  font-family: 'Roboto', sans-serif;
+ overflow: hidden;
 }
 
 
-/*Initial Page*/
 .initial {
  height: 100vh;
  width: 100%;
@@ -36,11 +36,11 @@ body {
  transition: .3s ease-in-out;
 }
 
-.initial svg:hover {
+/* .initial svg:hover {
  filter: drop-shadow(0 0 10px #d80600);
  transform: scale(90%);
  opacity: 0.7;
-}
+} */
 
 .rest {
  display: none;
@@ -52,8 +52,6 @@ display: none;
 html.active .rest{
  display: flex;
 }
-
-/*Rest Page*/
 
 .rest {
  height: 100vh;
@@ -87,11 +85,13 @@ html.active .rest{
 
   margin-top: 2rem;
   margin-bottom: .5rem;
+  user-select: none;
 }
 .timeLove h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     color: #F4EDE8;
+    user-select: none;
 }
 .timeLove span {
     font-family: 'Roboto', sans-serif;
@@ -100,6 +100,7 @@ html.active .rest{
     color: #d80600;
 
     margin-top: .5rem;
+    user-select: none;
 }
 
 .timeLove {
@@ -113,38 +114,20 @@ html.active .rest{
     
     border-bottom: 2px solid #d80600;
     padding-bottom: 2rem;
-    
-};
-
-
-/*Heart Rain*/
-.heart {
-    position: fixed;
-    font-size: 1.5rem;
-    top: -1vh;
-    transform: translateY(0);
-    animation: fall 3s linear forwards;
+    user-select: none;
 }
-  
-@keyframes fall {
-    from {
-       transform: translateY(0vh) translateX(-10vw); 
-    }
-    to {
-       transform: translateY(105vh) translateX(10vw); 
-    }
-} 
 
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     color: #F4EDE8;
     text-align: center;
+    user-select: none;
    
     margin-top: 1rem;
 }
 
-a {
+button {
  font-family: 'Roboto', sans-serif;
  text-align: center;
  font-size: 1.6rem;
@@ -176,4 +159,31 @@ body {
  width: 500px;
  margin: 0 auto;
 }
+}
+
+.heart {
+    position: fixed;
+    font-size: 1.5rem;
+    top: -1vh;
+    transform: translateY(0);
+    animation: fall 3s linear forwards;
+}
+  
+@keyframes fall {
+    from {
+       transform: translateY(0vh) translateX(-10vw); 
+    }
+    to {
+       transform: translateY(105vh) translateX(10vw); 
+    }
+} 
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(90%); filter: drop-shadow(0 0 10px #d80600); opacity: 0.7;}
+    100% { transform: scale(1);  }
+}
+
+.animate {
+    animation: pulse 0.3s ease-in-out;
 }
