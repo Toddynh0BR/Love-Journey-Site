@@ -84,7 +84,7 @@ calcularTempoPassado("2024-05-23 12:50 PM");
 
 document.getElementById("btnDownload").addEventListener("click", function() {
   const link = document.createElement("a");
-  link.href = "assets/favicon.png"; 
+  link.href = "assets/application-60c7754c-2334-465d-b0c2-64fd351f577c.apk"; 
   link.download = "lovejourney.apk"; 
   document.body.appendChild(link);
   link.click();
